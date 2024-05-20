@@ -1,6 +1,7 @@
 import { AccountCircle, Menu, Search, ShoppingCart } from "@mui/icons-material";
 import { Hidden } from "@mui/material";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
@@ -8,7 +9,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div>
+      <div className="relative top-0 w-full z-10">
         <div className="grid grid-cols-2 md:grid-cols-3 justify-items-center md:justify-around px-2 py-3 shadow-lg">
           <div className="justify-self-center w-full md:w-fit flex items-center gap-2 font-bold text-xl">
             <img src="/images/fc-logo.png" alt="" className="w-5 " />
@@ -37,8 +38,32 @@ const Navbar = () => {
             </div>
             {/* Menu Bar */}
             <ul className="flex gap-5 text-sm md:text-lg ">
-              <a href="#home">Home</a>
-              <a href="#shop">Shop</a>
+              <Link to="/">
+              <a
+                href="home"
+                onClick={() => setMenu("home")}
+                className={`${
+                  menu === "home"
+                    ? "border-b-2 border-red-500  ease-in duration-300"
+                    : ""
+                }`}
+              >
+                Home
+              </a>
+              </Link>
+              <Link to="/shop">
+                <a
+                  id="#shop"
+                  onClick={() => setMenu("shop")}
+                  className={`${
+                    menu === "shop"
+                      ? "border-b-2 border-red-500 ease-in duration-300"
+                      : ""
+                  }`}
+                >
+                  Shop
+                </a>
+              </Link>
               <div>
                 <AccountCircle className="mr-1" />
                 <button>Login</button>
