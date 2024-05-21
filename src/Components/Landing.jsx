@@ -8,7 +8,7 @@ const Landing = () => {
 
   return (
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
+        <Route path="/" element={<Home categ={categ} setCateg={setCateg}/>}></Route>
         <Route path="/shop" element={<Shop categ={categ} setCateg={setCateg} />}></Route>
       </Routes>
   );

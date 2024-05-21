@@ -1,3 +1,4 @@
+import All from './All.png'
 import suiting from './suiting.png'
 import shirt from './shirt.png'
 import unifrom from './uniform.png'
@@ -6,6 +7,10 @@ import tshirt from './tshirt.png'
 import coat from './coat.png'
 
 export const category_list=[
+    {
+        cat_name:"All",
+        cat_image:All
+    },
     {
         cat_name:"Suiting",
         cat_image:suiting
