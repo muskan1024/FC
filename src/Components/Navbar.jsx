@@ -1,7 +1,7 @@
 import { AccountCircle, Menu, Search, ShoppingCart } from "@mui/icons-material";
 import { Hidden } from "@mui/material";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
@@ -24,8 +24,8 @@ const Navbar = () => {
           </div>
           <div
             className={`${
-              open ? "hidden" : "block"
-            } w-full grid grid-flow-row md:grid-flow-col gap-4 col-span-2 justify-evenly`}
+              open ? "block" : "hidden"
+            } w-full grid col-span-2 grid-flow-row md:grid md:grid-flow-col gap-4 justify-evenly`}
           >
             {/* Search Bar */}
             <div className="flex border-b-[1.5px] border-black bg-white">
@@ -38,32 +38,26 @@ const Navbar = () => {
             </div>
             {/* Menu Bar */}
             <ul className="flex gap-5 text-sm md:text-lg ">
-              <Link to="/">
-              <a
-                href="home"
-                onClick={() => setMenu("home")}
-                className={`${
-                  menu === "home"
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
                     ? "border-b-2 border-red-500  ease-in duration-300"
                     : ""
-                }`}
+                }
               >
                 Home
-              </a>
-              </Link>
-              <Link to="/shop">
-                <a
-                  id="#shop"
-                  onClick={() => setMenu("shop")}
-                  className={`${
-                    menu === "shop"
-                      ? "border-b-2 border-red-500 ease-in duration-300"
-                      : ""
-                  }`}
-                >
-                  Shop
-                </a>
-              </Link>
+              </NavLink>
+              <NavLink
+                to="/shop"
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-b-2 border-red-500  ease-in duration-300"
+                    : ""
+                }
+              >
+                Shop
+              </NavLink>
               <div>
                 <AccountCircle className="mr-1" />
                 <button>Login</button>
